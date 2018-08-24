@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+  <html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+    <title>Multiple Files Upload to Firebase</title>
+  </head>
+  <body>
+    <div id="app" class="container">
+      <h1>Multiple Files Upload to Firebase</h1>
+      <hr>
+      <form method="POST" action="upload.php" id="profileData" enctype="multipart/form-data">
+        <h2>With Input:</h2>
+        <div class="form-row">
+          <div class="col">
+            <div class="form-group">
+              <label for="firstName">What's on your mind?</label>
+              <textarea name="status" id="status" class="form-control" cols="30" rows="5" placeholder="What's on your mind?"></textarea>
+            </div>
+          </div>
+        </div>
+        <div class="form-group">
+          <label for="pictures">Pictures</label>
+          <input name="pictures" type="file" class="form-control" id="pictures" accept="image/*" multiple>
+        </div>
+        <div class="form-group">
+          <button class="btn btn-outline-success" id="post">Post</button>
+        </div>
+      </form>
+      <hr>
+      <div>
+        <h2>With Drag and Drop:</h2>
+        <div class="form-row">
+          <div class="col">
+            <div class="form-group">
+              <label for="firstName">What's on your mind? <small class="text-muted">(Drag and Drop files in textarea)</small></label>
+              <textarea name="status" id="status" class="form-control" cols="30" rows="5" placeholder="What's on your mind?"></textarea>
+            </div>
+          </div>
+        </div>
+        <div class="form-group">
+          <button id="upload" class="btn btn-outline-primary">Post</button>
+        </div>
+      </div>
+      <hr>
+      <div id="message" class="alert d-none"></div>
+    </div>
+    <script src="script.js"></script>
+  </body>
+  </html>
