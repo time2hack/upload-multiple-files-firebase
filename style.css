@@ -1,0 +1,15 @@
+header {
+  padding: 1.5rem 0;
+}
+body.auth-false .auth-false {
+  display: block;
+}
+body.auth-false .auth-true {
+  display: none;
+}
+body.auth-true .auth-false {
+  display: none;
+}
+body.auth-true .auth-true {
+  display: block;
+}

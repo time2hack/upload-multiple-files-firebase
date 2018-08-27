@@ -5,19 +5,31 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+    <link rel="stylesheet" href="./style.css">
     <title>Multiple Files Upload to Firebase</title>
   </head>
-  <body>
+  <body class="auth-false">
     <div id="app" class="container">
-      <h1>Multiple Files Upload to Firebase</h1>
+      <header class="clearfix">
+        <h1 class="d-inline-block">Contact Book</h1>
+        <div class="float-right">
+          <div class="auth-false">
+            Login with <button type="button" class="btn btn-primary" id="fbLogin">Facebook</button> <button type="button" class="btn btn-info" id="twLogin">Twitter</button>
+          </div>
+          <div class="auth-true">
+            Logged in as <span class="d-inline-block" id="user-info-container"></span> <button type="button" class="btn btn-success" id="logout">Logout</button>
+          </div>
+        </div>
+      </header>
+      <h3 >Multiple Files Upload to Firebase</h3>
       <hr>
-      <form method="POST" action="upload.php" id="profileData" enctype="multipart/form-data">
+      <div>
         <h2>With Input:</h2>
         <div class="form-row">
           <div class="col">
             <div class="form-group">
               <label for="firstName">What's on your mind?</label>
-              <textarea name="status" id="status" class="form-control" cols="30" rows="5" placeholder="What's on your mind?"></textarea>
+              <textarea name="status" id="status" class="form-control" cols="30" rows="3" placeholder="What's on your mind?"></textarea>
             </div>
           </div>
         </div>
@@ -28,7 +40,7 @@
         <div class="form-group">
           <button class="btn btn-outline-success" id="post">Post</button>
         </div>
-      </form>
+      </div>
       <hr>
       <div>
         <h2>With Drag and Drop:</h2>
@@ -36,17 +48,21 @@
           <div class="col">
             <div class="form-group">
               <label for="firstName">What's on your mind? <small class="text-muted">(Drag and Drop files in textarea)</small></label>
-              <textarea name="status" id="status" class="form-control" cols="30" rows="5" placeholder="What's on your mind?"></textarea>
+              <textarea name="status" id="status" class="form-control" cols="30" rows="3" placeholder="What's on your mind?"></textarea>
             </div>
           </div>
         </div>
         <div class="form-group">
-          <button id="upload" class="btn btn-outline-primary">Post</button>
+          <button id="create-post" class="btn btn-outline-primary">Post</button>
         </div>
       </div>
       <hr>
       <div id="message" class="alert d-none"></div>
     </div>
+    <script src="https://www.gstatic.com/firebasejs/5.0.0/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/5.0.0/firebase-auth.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/5.0.0/firebase-database.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/5.0.0/firebase-storage.js"></script>
     <script src="script.js"></script>
   </body>
   </html>
