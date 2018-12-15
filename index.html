@@ -31,7 +31,7 @@
               <div class="col">
                 <div class="form-group">
                   <label for="firstName">What's on your mind?</label>
-                  <textarea maxlength="400" name="status" id="status" class="form-control" cols="30" rows="3" placeholder="What's on your mind?"></textarea>
+                  <textarea maxlength="400" name="status" class="form-control" cols="30" rows="3" placeholder="What's on your mind?"></textarea>
                 </div>
               </div>
             </div>
@@ -51,10 +51,11 @@
           <h2>With Drag and Drop:</h2>
           <div class="form-row">
             <div class="col">
-              <div class="form-group">
+              <div class="form-group" file-drop>
                 <label for="firstName">What's on your mind? <small class="text-muted">(Drag and Drop files in textarea)</small></label>
                 <textarea maxlength="400" name="status" id="status" class="form-control" cols="30" rows="5" placeholder="What's on your mind?"></textarea>
               </div>
+              <div file-drop-preview></div>
             </div>
           </div>
           <div class="form-group">

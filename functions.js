@@ -51,7 +51,7 @@ function updateUserStatus(userInfo) {
       span.classList.add('align-middle');
       userInfoContainer.appendChild(span);
     }
-    userImagesRef.child(user.uid).on('child_added', onChildAdd);
+    userImagesRef.child(user.uid).orderByChild('timestamp').on('child_added', onChildAdd);
   } else {
     // No user is signed in.
     user && userImagesRef.child(user.uid).off('child_added', onChildAdd);
@@ -129,10 +129,12 @@ const generatePreviewData = (file) => {
   const fr = new FileReader();
   return new Promise((resolve, reject) => {
     fr.addEventListener('load', (e) => {
+      const div = document.createElement('div');
       const img = document.createElement('img');
       img.src = fr.result;
-      img.height = 200;
-      resolve(img);
+      img.setAttribute('class', 'border rounded img-preview');
+      div.appendChild(img)
+      resolve(div);
     });
     fr.addEventListener('error', (e) => {
       reject();
@@ -143,4 +145,9 @@ const generatePreviewData = (file) => {
 
 const imageMarkup = (src) => {
   return `<img src="${src}" alt="" class="m-1 p-1 ml-0 rounded border border-primary feed-content-media" style="max-height:8rem;"/>`;
+}
+const removeAllChildren = (el) => {
+  while(el.childElementCount) {
+    el.removeChild(el.children[0]);
+  }
 }
